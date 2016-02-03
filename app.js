@@ -1,15 +1,26 @@
-var atticus = ["Atticus", "2405", "47000", 3];
-var jem = ["Jem", "62347", "63500", 4];
-var boo = ["Boo", "11435", "54000", 3];
-var scout = ["Scout", "6243", "74750", 5];
+//Andy Fehrenbach - 2/2/2016
+
+function Employee (name, idNumber, salary, rating){
+	this.name = name;
+	this.idNumber = idNumber;
+	this.salary = salary;
+	this.rating = rating;
+}
+
+// Employees
+var atticus = new Employee ("Atticus", "2405", "47000", 3);
+var jem = new Employee ("Jem", "62347", "63500", 4);
+var boo = new Employee ("Boo", "11435", "54000", 3);
+var scout = new Employee ("Scout", "6243", "74750", 5);
 
 var employees = [atticus, jem, boo, scout];
 
-function calculateSTI(empInfo) {
-	var name = empInfo[0];
-	var empNumber = empInfo[1];
-	var currentSalary = Math.round(parseFloat(empInfo[2]));
-	var rating = empInfo[3];
+
+function calculateSTI(array) {
+	var name = array[i].name;
+	var empNumber = array[i].idNumber;
+	var currentSalary = parseInt(array[i].salary);
+	var rating = array[i].rating;
 	
 	var processedEmployee = [];
 	var bonus = 0;
@@ -68,8 +79,7 @@ function adjustBonusPercentage(empNumber, bonusPercentage, currentSalary) {
 	return bonusPercentage;
 }
 
-
 for(var i = 0; i < employees.length; i++) {
-	console.log(calculateSTI(employees[i]));
+	console.log(calculateSTI(employees));
 
 }
